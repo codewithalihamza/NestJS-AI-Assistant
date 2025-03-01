@@ -34,6 +34,57 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## API Documentation
+### **Chat with AI Assistant**
+#### **Endpoint:**
+```
+POST /ai_assistant/chat
+```
+
+#### **Request Headers:**
+```json
+{
+  "Content-Type": "application/json"
+}
+```
+
+#### **Request Body:**
+| Parameter  | Type   | Required | Description |
+|------------|--------|----------|-------------|
+| `prompt`   | string | ✅ Yes   | The text input for the AI model. |
+| `sessionId` | string | ❌ No  | A unique identifier to maintain chat history (optional). |
+
+#### **Example Request:**
+```bash
+curl -X POST http://localhost:5000/ai_assistant/chat \
+-H "Content-Type: application/json" \
+-d '{
+  "prompt": "What is the capital of Pakistan?",
+  "sessionId": "uuid"
+}'
+```
+
+#### **Example Response:**
+```json
+{
+  "response": "The capital of Pakistan is Islamabad.",
+  "sessionId": "uuid"
+}
+```
+
+#### **Response Details:**
+| Parameter   | Type   | Description |
+|-------------|--------|-------------|
+| `response`  | string | The AI-generated reply. |
+| `sessionId` | string | The same session ID (if provided) for tracking conversation history. |
+
+---
+
+## Notes
+- The `sessionId` is **optional** but useful for maintaining chat context.
+- If `sessionId` is provided, the AI will remember previous prompts and responses.
+
+
 ## 💫 About Me:
 I'm Ali Hamza from Pakistan 🇵🇰, an experienced Full Stack Developer. With a comprehensive understanding of both front-end and back-end technologies, I am dedicated to creating strong and reliable software applications that perform well and meet the needs of the users effectively. 💻🚀
 
