@@ -2,11 +2,18 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-# <p align="center">NestJS OpenAI Integration: AI-Powered API with NestJS</p>
+# <p align="center">🚀 NestJS AI Assistant – Conversational AI</p>
 
 ## Description
 
-This project integrates OpenAI's powerful AI capabilities with a NestJS backend, enabling intelligent responses, text generation, and natural language processing. Built with NestJS, TypeScript, and OpenAI's API, the system provides a scalable and efficient way to incorporate AI-driven features into applications. It supports GPT models for chatbots, content generation, and automation, ensuring seamless interaction with AI-powered services.
+NestJS AI Assistant is a powerful chatbot API built with NestJS and Google Gemini AI to provide intelligent, real-time conversations. It supports multi-session chat history, ensuring context-aware interactions.
+
+Features:
+🌟 Google Gemini AI Integration
+💬 Multi-session Chat History
+🚀 Built with NestJS for Scalability
+🔐 Secure API with Configurable Keys
+🔄 Easily Extendable for Custom Use Cases
 
 ## Installation
 
