@@ -1,17 +1,29 @@
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Injectable } from '@nestjs/common';
-
+import { ChatCompletionMessageDto } from './dto/chat-request.dto';
 
 @Injectable()
 export class OpenaiService {
-  findAll() {
-    return `This action returns all openai`;
-  }
+  constructor(private readonly geminiAI: GoogleGenerativeAI) { }
 
-  findOne(id: number) {
-    return `This action returns a #${id} openai`;
-  }
+  async createChatRequest(messages: ChatCompletionMessageDto[]): Promise<string> {
+    try {
+      const model = this.geminiAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
-  remove(id: number) {
-    return `This action removes a #${id} openai`;
+      // Convert messages to Gemini's format
+      const formattedMessages = messages.map(msg => ({
+        role: msg.role,
+        parts: [{ text: msg.content }],
+      }));
+
+      // Send request to Gemini
+      const result = await model.generateContent({ contents: formattedMessages });
+      const response = await result.response;
+
+      return response.text();
+    } catch (error) {
+      console.error('Error with Gemini API:', error);
+      throw new Error('Failed to generate response.');
+    }
   }
 }

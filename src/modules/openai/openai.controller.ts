@@ -1,4 +1,5 @@
-import { Controller, Delete, Get, Param } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ChatRequestDto } from './dto/chat-request.dto';
 import { OpenaiService } from './openai.service';
 
 
@@ -6,18 +7,8 @@ import { OpenaiService } from './openai.service';
 export class OpenaiController {
   constructor(private readonly openaiService: OpenaiService) { }
 
-  @Get()
-  findAll() {
-    return this.openaiService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.openaiService.findOne(+id);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.openaiService.remove(+id);
+  @Post('chat')
+  async chat(@Body() chatRequest: ChatRequestDto) {
+    return this.openaiService.createChatRequest(chatRequest.message);
   }
 }
