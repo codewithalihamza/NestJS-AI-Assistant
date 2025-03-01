@@ -9,11 +9,11 @@
 NestJS AI Assistant is a powerful chatbot API built with NestJS and Google Gemini AI to provide intelligent, real-time conversations. It supports multi-session chat history, ensuring context-aware interactions.
 
 Features:
-🌟 Google Gemini AI Integration
-💬 Multi-session Chat History
-🚀 Built with NestJS for Scalability
-🔐 Secure API with Configurable Keys
-🔄 Easily Extendable for Custom Use Cases
+- 🌟 Google Gemini AI Integration
+- 💬 Multi-session Chat History
+- 🚀 Built with NestJS for Scalability
+- 🔐 Secure API with Configurable Keys
+- 🔄 Easily Extendable for Custom Use Cases
 
 ## Installation
 
