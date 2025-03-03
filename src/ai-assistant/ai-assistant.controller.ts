@@ -4,14 +4,11 @@ import { CreateAIMessageDto } from './dto/create-ai-message.dto';
 
 @Controller('ai_assistant')
 export class AiAssistantController {
-  constructor(private readonly aiAssistantService: AiAssistantService) { }
+  constructor(private readonly aiAssistantService: AiAssistantService) {}
 
-  @Post("chat")
+  @Post('chat')
   @UsePipes(new ValidationPipe({ transform: true }))
-  createAIMessage(
-    @Body() createAIMessageDto: CreateAIMessageDto
-  ) {
-    return this.aiAssistantService.generateText(createAIMessageDto)
+  createAIMessage(@Body() createAIMessageDto: CreateAIMessageDto) {
+    return this.aiAssistantService.generateText(createAIMessageDto);
   }
-
 }

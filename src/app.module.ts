@@ -15,4 +15,4 @@ import { AiAssistantModule } from './ai-assistant/ai-assistant.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
